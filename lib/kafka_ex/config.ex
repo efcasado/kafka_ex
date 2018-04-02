@@ -10,6 +10,11 @@ defmodule KafkaEx.Config do
   require Logger
 
   @doc false
+  def brokers  do
+    Application.get_env(:kafka_ex, :brokers, [{"localhost", 9092}])
+  end
+
+  @doc false
   def use_ssl, do: Application.get_env(:kafka_ex, :use_ssl)
 
   # use this function to get the ssl options - it verifies the options and
