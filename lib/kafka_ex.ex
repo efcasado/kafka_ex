@@ -484,7 +484,7 @@ defmodule KafkaEx do
     {:ok, worker_init} | {:error, :invalid_consumer_group}
   def build_worker_options(worker_init) do
     defaults = [
-      uris: Application.get_env(:kafka_ex, :brokers),
+      uris: Config.brokers(),
       consumer_group: Config.consumer_group(),
       use_ssl: Config.use_ssl(),
       ssl_options: Config.ssl_options(),
